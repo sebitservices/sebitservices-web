@@ -1,0 +1,266 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+---
+
+<Layout title="Próximos Proyectos - SebitServices">
+  <Navbar />
+
+  <main class="bg-gradient-to-b from-slate-950 to-indigo-950 min-h-screen">
+    <!-- Hero Section con Parallax -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://raw.githubusercontent.com/SebitServices/assets/main/grid.svg')] opacity-5"></div>
+      <div class="absolute h-full w-full bg-[radial-gradient(circle_800px_at_100%_200px,rgba(99,102,241,0.1),transparent)]"></div>
+      <div class="absolute h-full w-full bg-[radial-gradient(circle_800px_at_0%_800px,rgba(139,92,246,0.1),transparent)]"></div>
+      
+      <!-- Contenido Hero -->
+      <div class="container mx-auto px-6 relative text-center">
+        <span class="inline-block px-4 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-sm font-medium mb-4">
+          Innovación en Desarrollo
+        </span>
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+          El Futuro en <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Desarrollo</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          Explora nuestros próximos proyectos que están transformando la manera en que las empresas operan en el mundo digital.
+        </p>
+      </div>
+
+      <!-- Decorative elements -->
+      <div class="absolute -bottom-10 left-0 w-full h-20 bg-gradient-to-b from-transparent to-slate-950"></div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="relative py-20">
+      <div class="container mx-auto px-6">
+        <!-- Timeline Track con progreso animado -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-slate-800/50 top-0">
+          <div class="absolute top-0 left-0 w-full bg-gradient-to-b from-indigo-500 to-purple-500 transition-all duration-1000" id="timeline-progress"></div>
+        </div>
+        
+        <!-- Project Cards -->
+        <div class="space-y-32 relative">
+          <!-- SaborHub Project -->
+          <div class="relative group" data-timeline-section>
+            <!-- Timeline dot con animación mejorada -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500">
+              <div class="relative">
+                <!-- Círculo exterior animado -->
+                <div class="absolute -inset-4 bg-indigo-500/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                <!-- Punto central -->
+                <div class="relative w-4 h-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full z-10">
+                  <div class="absolute inset-0 bg-indigo-400 rounded-full animate-ping opacity-75"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card -->
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto opacity-0 translate-y-10" data-project-content>
+              <!-- Image Section -->
+              <div class="relative rounded-3xl overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
+                <div class="absolute inset-0.5 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-500"></div>
+                <div class="relative bg-slate-950/50 backdrop-blur-xl border border-slate-800 rounded-3xl overflow-hidden">
+                  <!-- Contenedor de la imagen con aspect ratio fijo -->
+                  <div class="relative aspect-[16/9] w-full">
+                    <img 
+                      src="/images/projects/saborhub.webp"
+                      alt="SaborHub - Sistema de Gestión para Restaurantes" 
+                      class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <!-- Overlay gradiente -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent opacity-60"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Content Section -->
+              <div class="relative">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-300 text-sm font-medium mb-4">
+                  Próximo Lanzamiento
+                </span>
+                <h2 class="text-3xl font-bold text-white mb-4">SaborHub</h2>
+                <p class="text-slate-300 text-lg mb-6 leading-relaxed">
+                  Sistema integral que revoluciona la gestión de restaurantes, combinando tecnología avanzada con una experiencia de usuario excepcional.
+                </p>
+
+                <!-- Features Grid -->
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                  <div class="flex items-center space-x-2 text-slate-300">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>POS Intuitivo</span>
+                  </div>
+                  <div class="flex items-center space-x-2 text-slate-300">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Gestión de Mesas</span>
+                  </div>
+                  <div class="flex items-center space-x-2 text-slate-300">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Control de Stock</span>
+                  </div>
+                  <div class="flex items-center space-x-2 text-slate-300">
+                    <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Menú Virtual</span>
+                  </div>
+                </div>
+
+                <!-- Tech Stack -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 bg-yellow-500/10 text-yellow-300 rounded-full text-sm">Node.js</span>
+                  <span class="px-3 py-1 bg-sky-500/10 text-sky-300 rounded-full text-sm">Tailwind CSS</span>
+                  <span class="px-3 py-1 bg-orange-500/10 text-orange-300 rounded-full text-sm">Firebase</span>
+                  <span class="px-3 py-1 bg-emerald-500/10 text-emerald-300 rounded-full text-sm">Vue.js</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Próximo Proyecto (Placeholder) -->
+          <div class="relative group opacity-60 hover:opacity-100 transition-opacity duration-500" data-timeline-section>
+            <!-- Timeline dot con animación -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500">
+              <div class="relative">
+                <div class="absolute -inset-4 bg-purple-500/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+                <div class="w-4 h-4 bg-gradient-to-r from-purple-500/50 to-pink-500/50 rounded-full"></div>
+              </div>
+            </div>
+
+            <!-- Project Card -->
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto opacity-0 translate-y-10" data-project-content>
+              <!-- Content Section -->
+              <div class="relative order-2 md:order-1">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 text-purple-300 text-sm font-medium mb-4">
+                  En Planificación
+                </span>
+                <h2 class="text-3xl font-bold text-white/70 mb-4">Próximamente</h2>
+                <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+                  Estamos trabajando en más soluciones innovadoras para diferentes industrias. 
+                  Mantente atento a nuestras próximas actualizaciones.
+                </p>
+              </div>
+
+              <!-- Placeholder Image -->
+              <div class="relative rounded-3xl overflow-hidden bg-slate-800/50 aspect-[4/3] flex items-center justify-center order-1 md:order-2">
+                <svg class="w-24 h-24 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="relative py-20">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Tienes un proyecto en mente?</h2>
+        <p class="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
+          Conversemos sobre cómo podemos ayudarte a transformar tu idea en realidad.
+        </p>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+          <p class="text-lg text-slate-300 flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span class="font-medium">+56 9 3682 3590</span>
+          </p>
+          <p class="text-lg text-slate-300 flex items-center gap-2">
+            <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span class="font-medium">admin@sebitservices.cl</span>
+          </p>
+        </div>
+        <a 
+          href="/" 
+          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl font-medium hover:opacity-90 transition-all duration-300 hover:scale-105 group"
+        >
+          Volver al Inicio
+          <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Función para manejar la animación del scroll
+  function handleScroll() {
+    const timelineSections = document.querySelectorAll('[data-timeline-section]');
+    const progressBar = document.getElementById('timeline-progress') as HTMLElement;
+    
+    timelineSections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const projectContent = section.querySelector('[data-project-content]') as HTMLElement;
+      
+      if (!projectContent) return;
+      
+      // Calcular la posición relativa para la animación
+      const triggerPoint = window.innerHeight * 0.75;
+      
+      if (rect.top <= triggerPoint) {
+        section.classList.add('active');
+        projectContent.style.opacity = '1';
+        projectContent.style.transform = 'translateY(0)';
+        
+        // Actualizar la barra de progreso
+        if (progressBar) {
+          const progress = ((index + 1) / timelineSections.length) * 100;
+          progressBar.style.height = `${progress}%`;
+        }
+      } else {
+        section.classList.remove('active');
+        projectContent.style.opacity = '0';
+        projectContent.style.transform = 'translateY(10px)';
+      }
+    });
+  }
+
+  // Inicializar las animaciones
+  document.addEventListener('DOMContentLoaded', () => {
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    
+    // Añadir transiciones suaves a los elementos del proyecto
+    const projectContents = document.querySelectorAll('[data-project-content]');
+    projectContents.forEach(content => {
+      const element = content as HTMLElement;
+      element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+    });
+  });
+</script>
+
+<style>
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  [data-timeline-section] {
+    transition: all 0.5s ease-out;
+  }
+  
+  [data-timeline-section].active [data-project-content] {
+    transition-delay: 0.2s;
+  }
+
+  #timeline-progress {
+    height: 0%;
+    transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style> 

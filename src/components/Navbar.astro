@@ -1,0 +1,267 @@
+---
+// Detectar si estamos en la página de próximos proyectos
+const currentPath = Astro.url.pathname;
+const isProximosProyectos = currentPath.includes('proximos-proyectos');
+
+// Menú items según la página
+const menuItems = isProximosProyectos 
+  ? [{ href: "/", text: "Inicio" }]
+  : [
+      { href: "#inicio", text: "Inicio" },
+      { href: "#planes", text: "Planes" },
+      { href: "#elegirnos", text: "¿Por qué Elegirnos?" },
+      { href: "#proyectos", text: "Proyectos" },
+      { href: "/proximos-proyectos", text: "Próximos Proyectos" },
+    ];
+
+// Función para manejar el scroll suave
+const scrollToSection = (e) => {
+  e.preventDefault();
+  const href = e.currentTarget.getAttribute('href');
+  const section = document.querySelector(href);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+---
+
+<header class="fixed w-full z-50">
+  <!-- Fondo con efecto glassmorphism mejorado -->
+  <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-xl border-b border-slate-800/50"></div>
+  
+  <!-- Barra de progreso -->
+  <div class="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-300" id="progress-bar"></div>
+  
+  <nav class="container mx-auto px-6 py-4 relative">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="relative group">
+        <div class="relative z-10">
+          <span class="text-2xl font-bold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent bg-[length:200%_auto] group-hover:bg-[length:100%_auto] transition-all duration-500">
+            SebitServices
+          </span>
+          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-pink-500 transition-all duration-500 group-hover:w-full"></span>
+        </div>
+        <div class="absolute -inset-x-6 -inset-y-4 bg-indigo-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10"></div>
+      </a>
+      
+      <!-- Menú de navegación desktop -->
+      <div class="hidden md:flex items-center space-x-6">
+        {menuItems.map(item => (
+          <a 
+            href={item.href} 
+            class="relative text-slate-300 hover:text-white transition-colors duration-300 group py-2 px-3"
+          >
+            <span class="relative z-10">{item.text}</span>
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+            <span class="absolute inset-0 bg-indigo-500/0 rounded-lg -z-10 transition-all duration-300 group-hover:bg-indigo-500/10"></span>
+          </a>
+        ))}
+        {!isProximosProyectos && (
+          <a 
+            href="#contacto" 
+            class="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg hover:shadow-indigo-500/25 transition-all duration-500 group"
+          >
+            <span class="relative z-10 flex items-center">
+              <span>Conversemos</span>
+              <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </a>
+        )}
+      </div>
+
+      <!-- Botón menú móvil -->
+      <button 
+        class="md:hidden relative w-10 h-10 flex items-center justify-center text-slate-300 hover:text-white transition-colors duration-300" 
+        id="menuButton" 
+        aria-label="Menú"
+      >
+        <div class="w-6 h-6 flex flex-col justify-center space-y-1.5 overflow-hidden">
+          <span class="w-full h-0.5 bg-current transform transition-all duration-300" id="line1"></span>
+          <span class="w-full h-0.5 bg-current transform transition-all duration-300" id="line2"></span>
+          <span class="w-full h-0.5 bg-current transform transition-all duration-300" id="line3"></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Menú móvil -->
+    <div 
+      class="md:hidden absolute top-full left-0 w-full transform -translate-y-full opacity-0 transition-all duration-500 invisible pointer-events-none" 
+      id="mobileMenu"
+    >
+      <div class="bg-slate-950/95 backdrop-blur-xl border border-slate-800/50 shadow-lg rounded-2xl mt-2 p-6 mx-4 transform scale-95 opacity-0 transition-all duration-500" id="mobileMenuContent">
+        <div class="flex flex-col space-y-4">
+          {menuItems.map(item => (
+            <a 
+              href={item.href} 
+              class="relative text-slate-300 hover:text-white transition-colors duration-300 group py-2"
+            >
+              <span class="relative z-10 flex items-center">
+                {item.text}
+                <svg class="w-4 h-4 ml-2 opacity-0 transform -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+              <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          ))}
+          {!isProximosProyectos && (
+            <a 
+              href="#contacto" 
+              class="relative inline-flex items-center justify-center px-6 py-3 overflow-hidden rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg hover:shadow-indigo-500/25 transition-all duration-500 group mt-2"
+            >
+              <span class="relative z-10 flex items-center">
+                <span>Conversemos</span>
+                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuContent = document.getElementById('mobileMenuContent');
+  const line1 = document.getElementById('line1');
+  const line2 = document.getElementById('line2');
+  const line3 = document.getElementById('line3');
+  const progressBar = document.getElementById('progress-bar');
+  let isOpen = false;
+
+  // Función para actualizar la barra de progreso
+  function updateProgressBar() {
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    if (progressBar) progressBar.style.width = `${scrollPercent}%`;
+  }
+
+  // Event listeners
+  window.addEventListener('scroll', updateProgressBar);
+  window.addEventListener('resize', updateProgressBar);
+
+  menuButton?.addEventListener('click', () => {
+    isOpen = !isOpen;
+    
+    // Animar el botón
+    if (line1 && line2 && line3) {
+      if (isOpen) {
+        line1.style.transform = 'translateY(8px) rotate(45deg)';
+        line2.style.opacity = '0';
+        line3.style.transform = 'translateY(-8px) rotate(-45deg)';
+      } else {
+        line1.style.transform = 'none';
+        line2.style.opacity = '1';
+        line3.style.transform = 'none';
+      }
+    }
+
+    // Animar el menú
+    if (mobileMenu && mobileMenuContent) {
+      if (isOpen) {
+        mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'invisible', 'pointer-events-none');
+        mobileMenu.classList.add('translate-y-0', 'opacity-100', 'visible', 'pointer-events-auto');
+        
+        // Animar el contenido después de un pequeño delay
+        setTimeout(() => {
+          mobileMenuContent.classList.remove('scale-95', 'opacity-0');
+          mobileMenuContent.classList.add('scale-100', 'opacity-100');
+        }, 100);
+      } else {
+        mobileMenuContent.classList.remove('scale-100', 'opacity-100');
+        mobileMenuContent.classList.add('scale-95', 'opacity-0');
+        
+        // Animar el contenedor después de que termine la animación del contenido
+        setTimeout(() => {
+          mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible', 'pointer-events-auto');
+          mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible', 'pointer-events-none');
+        }, 300);
+      }
+    }
+  });
+
+  // Cerrar el menú al hacer click en un enlace
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      
+      // Primero cerramos el menú suavemente
+      if (mobileMenuContent) {
+        mobileMenuContent.classList.remove('scale-100', 'opacity-100');
+        mobileMenuContent.classList.add('scale-95', 'opacity-0');
+      }
+      
+      // Después de un pequeño delay, ocultamos el contenedor
+      setTimeout(() => {
+        if (mobileMenu) {
+          mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible', 'pointer-events-auto');
+          mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible', 'pointer-events-none');
+        }
+        
+        // Actualizamos el estado del botón
+        isOpen = false;
+        if (line1 && line2 && line3) {
+          line1.style.transform = 'none';
+          line2.style.opacity = '1';
+          line3.style.transform = 'none';
+        }
+
+        // Después de cerrar el menú, hacemos el scroll
+        setTimeout(() => {
+          if (href && href !== '#') {
+            if (href.startsWith('#')) {
+              const targetId = href.replace('#', '');
+              scrollToSection(targetId);
+            } else {
+              window.location.href = href;
+            }
+          }
+        }, 300);
+      }, 200);
+    });
+  });
+
+  // Inicializar la barra de progreso
+  updateProgressBar();
+
+  // Función mejorada para el scroll suave
+  function scrollToSection(targetId: string) {
+    const element = document.getElementById(targetId);
+    const header = document.querySelector('header');
+    
+    if (element && header) {
+      const headerHeight = header.offsetHeight;
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerHeight - 40;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  // Actualizar el manejo de clicks en enlaces (solo para desktop)
+  document.addEventListener('DOMContentLoaded', () => {
+    const desktopLinks = document.querySelectorAll('.hidden.md\\:flex a[href^="#"]');
+    desktopLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        
+        const targetId = href.replace('#', '');
+        scrollToSection(targetId);
+      });
+    });
+  });
+</script> 

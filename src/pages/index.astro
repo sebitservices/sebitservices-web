@@ -1,0 +1,396 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Hero from '../components/sections/Hero.astro';
+import Planes from '../components/sections/Planes.astro';
+import PorQueElegirnos from '../components/sections/PorQueElegirnos.astro';
+import Proyectos from '../components/sections/Proyectos.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="SebitServices - Soluciones Digitales Profesionales">
+  <Navbar />
+
+  <main class="bg-gradient-to-b from-slate-950 to-indigo-950">
+    <Hero />
+    <Planes />
+
+    
+    <PorQueElegirnos />
+    <Proyectos />
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="py-24 relative overflow-hidden">
+      <ContactForm />
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Animaciones base */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { filter: brightness(1) blur(0px); }
+    50% { filter: brightness(1.2) blur(4px); }
+  }
+
+  @keyframes borderGlow {
+    0%, 100% { border-color: rgba(99, 102, 241, 0.2); }
+    50% { border-color: rgba(139, 92, 246, 0.5); }
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Estilos para las tarjetas de planes */
+  .planes-container {
+    perspective: 2000px;
+    transform-style: preserve-3d;
+  }
+
+  .plan-card {
+    opacity: 0;
+    transform: translateY(100px) rotateX(-10deg);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  .plan-card.active {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+
+  /* Animaciones específicas para cada tarjeta */
+  .plan-card:nth-child(1) {
+    transform: translateY(100px) rotateX(-15deg) translateX(-50px);
+    transition-delay: 200ms;
+  }
+
+  .plan-card:nth-child(2) {
+    transform: translateY(120px) rotateX(-15deg) scale(0.95);
+    transition-delay: 400ms;
+  }
+
+  .plan-card:nth-child(3) {
+    transform: translateY(100px) rotateX(-15deg) translateX(50px);
+    transition-delay: 600ms;
+  }
+
+  .plan-card.active:nth-child(1) {
+    transform: translateY(0) rotateX(0) translateX(0);
+  }
+
+  .plan-card.active:nth-child(2) {
+    transform: translateY(0) rotateX(0) scale(1);
+  }
+
+  .plan-card.active:nth-child(3) {
+    transform: translateY(0) rotateX(0) translateX(0);
+  }
+
+  /* Efectos hover mejorados */
+  .plan-card .card-content {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .plan-card:hover .card-content {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow: 
+      0 20px 40px -15px rgba(99, 102, 241, 0.3),
+      0 0 20px rgba(139, 92, 246, 0.2);
+  }
+
+  .plan-card .glow-effect {
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(45deg, 
+      rgba(99, 102, 241, 0.5), 
+      rgba(139, 92, 246, 0.5), 
+      rgba(244, 114, 182, 0.5)
+    );
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(10px);
+  }
+
+  .plan-card:hover .glow-effect {
+    opacity: 1;
+    animation: gradientMove 3s linear infinite;
+  }
+
+  .plan-card .price {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .plan-card:hover .price {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  }
+
+  .plan-card .features li {
+    opacity: 0.8;
+    transform: translateX(-10px);
+    transition: all 0.3s ease-out;
+  }
+
+  .plan-card:hover .features li {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .plan-card .features li:nth-child(2) { transition-delay: 50ms; }
+  .plan-card .features li:nth-child(3) { transition-delay: 100ms; }
+  .plan-card .features li:nth-child(4) { transition-delay: 150ms; }
+  .plan-card .features li:nth-child(5) { transition-delay: 200ms; }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .animate-gradient-slow {
+    animation: gradient 8s linear infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  [data-animate].animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-animate-delay="100"] { transition-delay: 100ms; }
+  [data-animate-delay="200"] { transition-delay: 200ms; }
+  [data-animate-delay="300"] { transition-delay: 300ms; }
+  [data-animate-delay="400"] { transition-delay: 400ms; }
+  [data-animate-delay="500"] { transition-delay: 500ms; }
+
+  /* Ajustes para el scroll y espaciado de secciones */
+  section {
+    scroll-margin-top: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  /* Ajuste específico para el formulario de contacto */
+  #formulario-contacto {
+    scroll-margin-top: 4rem;
+    padding-top: 3rem;
+  }
+
+  /* Excepción para la sección hero */
+  section#inicio {
+    scroll-margin-top: 0;
+    padding-top: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Ajuste para el contenedor principal */
+  main {
+    scroll-snap-type: y proximity;
+    overflow-y: auto;
+  }
+
+  /* Ajuste específico para la sección de contacto */
+  section#contacto {
+    scroll-margin-top: 0; /* Quitamos el margen superior */
+    padding-top: 1rem; /* Reducimos el padding superior */
+  }
+</style>
+<script>
+  // Función para manejar las animaciones de las secciones
+  function handleSectionAnimations() {
+    const sections = document.querySelectorAll('.animate-section');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-show');
+          
+          // Animar elementos hijos con delays
+          const animatedElements = entry.target.querySelectorAll('.animate-element');
+          animatedElements.forEach((element, index) => {
+            setTimeout(() => {
+              element.classList.add('section-show');
+            }, index * 100); // 100ms de delay entre cada elemento
+          });
+        }
+      });
+    }, {
+      threshold: 0.15 // Trigger cuando al menos 15% de la sección es visible
+    });
+
+    sections.forEach(section => {
+      section.classList.add('section-hidden');
+      observer.observe(section);
+      
+      // Inicializar elementos animados dentro de la sección
+      const animatedElements = section.querySelectorAll('.animate-element');
+      animatedElements.forEach(element => {
+        element.classList.add('section-hidden');
+      });
+    });
+  }
+
+  // Inicializar animaciones cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    handleSectionAnimations();
+  });
+
+  function handlePlanesAnimation() {
+    const planesSection = document.getElementById('planes');
+    const planCards = document.querySelectorAll('.plan-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          planCards.forEach(card => card.classList.add('active'));
+        } else {
+          planCards.forEach(card => card.classList.remove('active'));
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '-50px'
+    });
+
+    if (planesSection) {
+      observer.observe(planesSection);
+    }
+
+    // Efecto de seguimiento del mouse
+    planCards.forEach((card: Element) => {
+      (card as HTMLElement).addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = (card as HTMLElement).getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+
+        (card as HTMLElement).style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+
+      (card as HTMLElement).addEventListener('mouseleave', () => {
+        (card as HTMLElement).style.transform = '';
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', handlePlanesAnimation);
+
+  // Función para manejar las animaciones de entrada
+  function handleElegirnos() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-visible');
+        } else {
+          entry.target.classList.remove('animate-visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '-50px'
+    });
+
+    document.querySelectorAll('[data-animate]').forEach(element => {
+      observer.observe(element);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', handleElegirnos);
+
+  function scrollToElement(targetId: string) {
+    const element = document.getElementById(targetId);
+    const header = document.querySelector('header');
+    
+    if (element && header) {
+      const headerHeight = header.offsetHeight;
+      let offsetPosition;
+      
+      // Ajuste específico para la sección de contacto
+      if (targetId === 'contacto') {
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        offsetPosition = elementPosition - (headerHeight - 50); // Ajustamos para bajar más
+      } else {
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        offsetPosition = elementPosition - headerHeight - 40;
+      }
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  // Manejar todos los enlaces internos
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        
+        const targetId = href.replace('#', '');
+        scrollToElement(targetId);
+      });
+    });
+  });
+</script>
