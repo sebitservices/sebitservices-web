@@ -1,0 +1,113 @@
+<button 
+  id="backToTopBtn" 
+  class="fixed bottom-6 right-6 z-40 w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full shadow-lg transform translate-y-20 opacity-0 transition-all duration-500 ease-in-out flex items-center justify-center hover:scale-110 hover:shadow-indigo-500/30 group"
+  aria-label="Volver arriba"
+>
+  <!-- Efecto de glow al hacer hover -->
+  <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-all duration-500 group-hover:scale-110"></div>
+  
+  <!-- Gradiente de fondo hover -->
+  <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+  
+  <!-- Pequeñas partículas decorativas -->
+  <div class="absolute inset-0 overflow-hidden rounded-full">
+    <div class="absolute top-1 left-1 w-1 h-1 bg-white opacity-50 rounded-full"></div>
+    <div class="absolute top-2 right-2 w-1.5 h-1.5 bg-white opacity-30 rounded-full"></div>
+    <div class="absolute bottom-1.5 left-3 w-1 h-1 bg-white opacity-40 rounded-full"></div>
+  </div>
+  
+  <!-- Flecha -->
+  <svg 
+    class="w-5 h-5 md:w-6 md:h-6 text-white relative z-10 transform rotate-180 group-hover:-translate-y-1 transition-transform duration-300" 
+    fill="none" 
+    viewBox="0 0 24 24" 
+    stroke="currentColor"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+  </svg>
+</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    const heroSection = document.getElementById('inicio');
+    
+    // Si estos elementos no existen, no continuar
+    if (!backToTopBtn || !heroSection) return;
+    
+    // Obtener la altura de la sección Hero para saber cuándo mostrar el botón
+    const heroHeight = heroSection.offsetHeight;
+    
+    // Función para mostrar/ocultar el botón
+    function toggleBackToTopButton() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      
+      // Mostrar el botón cuando se pase la sección Hero
+      if (scrollY > heroHeight * 0.75) {
+        if (backToTopBtn) {
+          backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
+          backToTopBtn.classList.add('translate-y-0', 'opacity-100');
+        }
+      } else {
+        if (backToTopBtn) {
+          backToTopBtn.classList.remove('translate-y-0', 'opacity-100');
+          backToTopBtn.classList.add('translate-y-20', 'opacity-0');
+        }
+      }
+    }
+    
+    // Función para scroll suave y estable
+    function scrollToTop(e: Event) {
+      e.preventDefault();
+      
+      // Duración más larga para un scroll más suave
+      const duration = 1000;
+      const startPosition = window.pageYOffset;
+      let startTime: number | null = null;
+      
+      // Usar requestAnimationFrame para una animación suave
+      function step(timestamp: number) {
+        if (!startTime) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Función de easing muy suave (ease-in-out)
+        const easeProgress = 0.5 - Math.cos(progress * Math.PI) / 2;
+        
+        window.scrollTo(0, startPosition * (1 - easeProgress));
+        
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+      
+      requestAnimationFrame(step);
+    }
+    
+    // Event listeners
+    window.addEventListener('scroll', toggleBackToTopButton);
+    backToTopBtn.addEventListener('click', scrollToTop);
+    
+    // Verificar al cargar la página
+    toggleBackToTopButton();
+  });
+</script>
+
+<style>
+  /* Animación de pulso para el botón */
+  @keyframes pulse-subtle {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+  }
+  
+  /* Aplicar animación cuando el botón está visible */
+  #backToTopBtn.opacity-100 {
+    animation: pulse-subtle 2s infinite;
+  }
+</style> 

@@ -269,15 +269,15 @@
 
     <!-- Mensaje destacado sobre personalización -->
     <div class="max-w-3xl mx-auto mb-10 bg-gradient-to-r from-indigo-900/30 via-purple-900/30 to-indigo-900/30 p-6 rounded-xl border border-indigo-500/20 backdrop-blur-sm">
-      <div class="flex items-start gap-4">
-        <div class="text-indigo-300 shrink-0 mt-1">
+      <div class="flex flex-col md:flex-row items-start gap-4">
+        <div class="text-indigo-300 shrink-0 mt-1 mb-2 md:mb-0 flex justify-center w-full md:w-auto md:justify-start">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         </div>
         <div>
-          <h4 class="text-lg font-semibold text-white mb-2">Soluciones totalmente a medida</h4>
-          <p class="text-slate-300">
+          <h4 class="text-lg font-semibold text-white mb-2 text-center md:text-left">Soluciones totalmente a medida</h4>
+          <p class="text-slate-300 text-sm md:text-base">
             Cada proyecto que desarrollamos es único y personalizado según los requerimientos específicos de nuestros clientes. Los precios mostrados son referenciales y pueden variar dependiendo de tus necesidades particulares.
           </p>
         </div>
@@ -505,6 +505,81 @@
     opacity: 0;
     transform: translateY(100px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 2rem; /* Asegurar espacio entre tarjetas en móvil */
+  }
+
+  /* Asegurar que las tarjetas siempre sean visibles en móvil */
+  @media (max-width: 767px) {
+    .plan-card {
+      opacity: 1;
+      transform: translateY(0) !important;
+      margin-bottom: 2.5rem;
+    }
+    
+    /* Evitar que las tarjetas se muevan en móvil */
+    .plan-card:nth-child(1),
+    .plan-card:nth-child(2),
+    .plan-card:nth-child(3) {
+      transform: translateY(0) !important;
+      transition-delay: 0ms;
+    }
+    
+    /* Ajustar el contenido dentro de las tarjetas */
+    .card-content {
+      padding: 1.5rem;
+    }
+    
+    /* Reducir tamaño del precio en móvil */
+    .price span.text-4xl {
+      font-size: 1.875rem;
+    }
+    
+    /* Ajustar espaciado interno */
+    .features {
+      margin-bottom: 1rem;
+    }
+    
+    /* Ajustar caja de referencia a proyectos */
+    .mb-6.p-4 {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Ajustes para tablets */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .grid.md\:grid-cols-2 {
+      gap: 1.5rem;
+    }
+    
+    .plan-card {
+      opacity: 1;
+      transform: translateY(0) !important;
+    }
+    
+    /* Distribuir correctamente en 2 columnas */
+    .plan-card:nth-child(3) {
+      grid-column: span 2;
+      max-width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  /* Ajustes para pantallas pequeñas */
+  @media (max-width: 390px) {
+    .text-center.mb-16 h2 {
+      font-size: 2rem;
+    }
+    
+    .text-center.mb-12 p {
+      font-size: 0.875rem;
+      padding: 0 0.5rem;
+    }
+    
+    .card-content {
+      padding: 1.25rem;
+    }
   }
 
   .plan-card.active {
@@ -512,32 +587,34 @@
     transform: translateY(0);
   }
 
-  /* Animaciones específicas para cada tarjeta */
-  .plan-card:nth-child(1) {
-    transform: translateY(100px) translateX(-50px);
-    transition-delay: 200ms;
-  }
+  /* Animaciones específicas para cada tarjeta - solo aplicar en desktop */
+  @media (min-width: 768px) {
+    .plan-card:nth-child(1) {
+      transform: translateY(100px) translateX(-50px);
+      transition-delay: 200ms;
+    }
 
-  .plan-card:nth-child(2) {
-    transform: translateY(120px) scale(0.95);
-    transition-delay: 400ms;
-  }
+    .plan-card:nth-child(2) {
+      transform: translateY(120px) scale(0.95);
+      transition-delay: 400ms;
+    }
 
-  .plan-card:nth-child(3) {
-    transform: translateY(100px) translateX(50px);
-    transition-delay: 600ms;
-  }
+    .plan-card:nth-child(3) {
+      transform: translateY(100px) translateX(50px);
+      transition-delay: 600ms;
+    }
 
-  .plan-card.active:nth-child(1) {
-    transform: translateY(0) translateX(0);
-  }
+    .plan-card.active:nth-child(1) {
+      transform: translateY(0) translateX(0);
+    }
 
-  .plan-card.active:nth-child(2) {
-    transform: translateY(0) scale(1);
-  }
+    .plan-card.active:nth-child(2) {
+      transform: translateY(0) scale(1);
+    }
 
-  .plan-card.active:nth-child(3) {
-    transform: translateY(0) translateX(0);
+    .plan-card.active:nth-child(3) {
+      transform: translateY(0) translateX(0);
+    }
   }
 
   /* Efectos hover modificados - sin efectos 3D */
@@ -606,6 +683,9 @@
   .proyecto-card {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(0);
+    height: 100%; /* Asegurar altura completa */
+    display: flex;
+    flex-direction: column;
   }
   
   .proyecto-card:hover {
@@ -620,6 +700,11 @@
     height: 100%;
     margin-left: auto;
     margin-right: auto;
+    overflow: visible !important; /* Evitar que los controles se corten */
+  }
+  
+  .swiper-container {
+    padding: 20px 0 60px !important; /* Dar espacio para la paginación y evitar cortes */
   }
   
   .swiper-slide {
@@ -627,7 +712,8 @@
     height: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch; /* Para que todas las tarjetas tengan la misma altura */
+    transition: transform 0.3s ease;
   }
   
   .swiper-button-prev,
@@ -636,12 +722,53 @@
     --swiper-navigation-size: 24px;
   }
   
+  /* Ajustar navegación en móviles */
+  @media (max-width: 640px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+    
+    .swiper-container {
+      padding: 10px 0 50px !important;
+    }
+    
+    /* Mejorar el aspecto de las tarjetas en móvil */
+    .proyecto-card {
+      margin: 0 5px;
+    }
+    
+    /* Reducir tamaño del precio en móvil */
+    .precio-tag .text-2xl {
+      font-size: 1.25rem;
+    }
+    
+    /* Ajustar botón de acción */
+    .precio-tag .inline-flex {
+      font-size: 0.875rem;
+    }
+  }
+  
+  .swiper-pagination {
+    position: relative;
+    bottom: 0 !important;
+    margin-top: 25px;
+  }
+  
   .swiper-pagination-bullet {
     background: rgba(139, 92, 246, 0.7);
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
   }
   
   .swiper-pagination-bullet-active {
     background: rgba(139, 92, 246, 1);
+    opacity: 1;
+    width: 12px;
+    height: 12px;
   }
 
   /* Estilo para resaltar temporalmente la sección de contacto */
@@ -660,12 +787,28 @@
     const planesSection = document.getElementById('planes');
     const planCards = document.querySelectorAll('.plan-card');
     
+    // Asegurar que las tarjetas sean visibles por defecto en dispositivos móviles
+    function setInitialState() {
+      if (window.innerWidth < 768) { // Móviles
+        planCards.forEach(card => {
+          card.classList.add('active');
+        });
+      }
+    }
+    
+    // Ejecutar inmediatamente para dispositivos móviles
+    setInitialState();
+    
+    // Luego usar IntersectionObserver para desktop
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          planCards.forEach(card => card.classList.add('active'));
-        } else {
-          planCards.forEach(card => card.classList.remove('active'));
+        // Solo aplicar animación en dispositivos desktop
+        if (window.innerWidth >= 768) {
+          if (entry.isIntersecting) {
+            planCards.forEach(card => card.classList.add('active'));
+          } else {
+            planCards.forEach(card => card.classList.remove('active'));
+          }
         }
       });
     }, {
@@ -676,6 +819,9 @@
     if (planesSection) {
       observer.observe(planesSection);
     }
+    
+    // Actualizar en cambio de tamaño de ventana
+    window.addEventListener('resize', setInitialState);
   }
 
   document.addEventListener('DOMContentLoaded', handlePlanesAnimation);
@@ -683,46 +829,90 @@
 
 <!-- Script separado para Swiper con is:inline para garantizar que se ejecute en el cliente -->
 <script is:inline>
-  // Esperar a que el DOM esté completamente cargado
-  document.addEventListener('DOMContentLoaded', function() {
-    // Esperar un poco más para asegurar que los recursos externos estén cargados
-    setTimeout(function() {
+  // Función para inicializar Swiper
+  function initPlanesSwiper() {
+    if (typeof Swiper !== 'undefined') {
       try {
-        // Inicializar Swiper
+        // Inicializar Swiper con configuración responsiva mejorada
         const swiper = new Swiper('.swiper-container', {
           slidesPerView: 1,
           spaceBetween: 20,
           loop: true,
           centeredSlides: true,
+          // Autoplay más lento en móviles para mejorar accesibilidad
           autoplay: {
-            delay: 3500,
+            delay: window.innerWidth < 768 ? 5000 : 3500,
             disableOnInteraction: false,
           },
           pagination: {
             el: '.swiper-pagination',
             clickable: true,
+            dynamicBullets: true, // Mejor visualización en móviles
           },
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           },
+          // Configuración responsiva mejorada
           breakpoints: {
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 15,
+            },
+            480: {
+              slidesPerView: 1.2,
+              spaceBetween: 15,
+              centeredSlides: true,
+            },
             640: {
               slidesPerView: 2,
               spaceBetween: 20,
+              centeredSlides: false,
             },
             1024: {
               slidesPerView: 3,
               spaceBetween: 30,
+              centeredSlides: false,
             },
           },
+          // Mejora de accesibilidad
+          a11y: {
+            prevSlideMessage: 'Proyecto anterior',
+            nextSlideMessage: 'Proyecto siguiente',
+          },
+          // Evitar problemas en dispositivos con pantalla táctil
+          touchEventsTarget: 'container',
+          threshold: 10, // Más tolerante con los gestos en móvil
         });
-        console.log('Swiper inicializado correctamente');
+        
+        // Ajuste adicional para móviles
+        if (window.innerWidth < 768) {
+          // Forzar un recálculo del tamaño después de la carga completa
+          setTimeout(() => {
+            swiper.update();
+          }, 500);
+        }
+        
+        console.log('Swiper de planes inicializado correctamente');
       } catch (error) {
         console.error('Error al inicializar Swiper:', error);
       }
-    }, 1000);  // Aumentamos el tiempo de espera a 1000ms (1 segundo)
+    } else {
+      console.error('Swiper no está definido. Asegúrate de que la biblioteca esté cargada.');
+    }
+  }
+
+  // Inicialización cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', function() {
+    // Intentar inicializar inmediatamente
+    initPlanesSwiper();
+    
+    // Si falla, intentar de nuevo después de un tiempo
+    setTimeout(initPlanesSwiper, 1000);
   });
+  
+  // Si estamos usando Astro View Transitions, inicializar después de la transición de página
+  document.addEventListener('astro:page-load', initPlanesSwiper);
 </script>
 
 <!-- Solución alternativa con enlaces directos -->
