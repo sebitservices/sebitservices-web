@@ -13,6 +13,13 @@
       </p>
     </div>
 
+    <!-- Agregar esta explicación -->
+    <div class="text-center mb-12">
+      <p class="text-lg text-slate-300 max-w-3xl mx-auto">
+        Cada plan está diseñado para diferentes tipos de proyectos. <span class="text-white font-medium">Mira los ejemplos reales</span> incluidos en cada tarjeta y <span class="text-white font-medium">desliza hacia abajo</span> para ver más detalles de proyectos similares.
+      </p>
+    </div>
+
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       <!-- Plan Básico -->
       <div class="plan-card">
@@ -59,12 +66,27 @@
               </li>
             </ul>
 
-            <a 
-              href="#contacto" 
-              class="block w-full py-3 px-6 text-center text-white bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105"
+            <!-- Referencia a proyectos similares -->
+            <div class="mb-6 p-4 bg-indigo-950/30 rounded-xl border border-indigo-500/20">
+              <p class="text-sm font-medium text-indigo-300 mb-2">Proyectos similares:</p>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-indigo-500/20">
+                  <img src="/images/projects/drvalery.webp" alt="Dr. Valery" class="w-full h-full object-cover" />
+                </div>
+                <span class="text-white text-sm">Dr. Valery</span>
+                <div class="ml-auto">
+                  <span class="text-xs font-medium px-2 py-1 bg-indigo-500/10 rounded-full text-indigo-300">Web simple</span>
+                </div>
+              </div>
+            </div>
+
+            <button 
+              type="button"
+              onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth', block: 'start'})" 
+              class="w-full py-3 px-6 text-center text-white bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105"
             >
               Comenzar Ahora
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -126,12 +148,27 @@
               </li>
             </ul>
 
-            <a 
-              href="#contacto" 
-              class="block w-full py-3 px-6 text-center text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105"
+            <!-- Referencia a proyectos similares -->
+            <div class="mb-6 p-4 bg-purple-950/30 rounded-xl border border-purple-500/20">
+              <p class="text-sm font-medium text-purple-300 mb-2">Proyectos similares:</p>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-purple-500/20">
+                  <img src="/images/projects/pedidosvenados.webp" alt="Venados Bakery" class="w-full h-full object-cover" />
+                </div>
+                <span class="text-white text-sm">Venados Bakery</span>
+                <div class="ml-auto">
+                  <span class="text-xs font-medium px-2 py-1 bg-purple-500/10 rounded-full text-purple-300">Sistema de Pedidos</span>
+                </div>
+              </div>
+            </div>
+
+            <button 
+              type="button"
+              onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth', block: 'start'})" 
+              class="w-full py-3 px-6 text-center text-white bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105"
             >
               Comenzar Ahora
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -187,14 +224,236 @@
               </li>
             </ul>
 
-            <a 
-              href="#contacto" 
-              class="block w-full py-3 px-6 text-center text-white bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105"
+            <!-- Referencia a proyectos similares -->
+            <div class="mb-6 p-4 bg-pink-950/30 rounded-xl border border-pink-500/20">
+              <p class="text-sm font-medium text-pink-300 mb-2">Proyectos similares:</p>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-pink-500/20">
+                  <img src="/images/projects/saborhub.webp" alt="SaborHub" class="w-full h-full object-cover" />
+                </div>
+                <span class="text-white text-sm">SaborHub</span>
+                <div class="ml-auto">
+                  <span class="text-xs font-medium px-2 py-1 bg-pink-500/10 rounded-full text-pink-300">E-commerce</span>
+                </div>
+              </div>
+            </div>
+
+            <button 
+              type="button"
+              onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth', block: 'start'})" 
+              class="w-full py-3 px-6 text-center text-white bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/25 hover:scale-105"
             >
               Comenzar Ahora
-            </a>
+            </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proyectos Realizados Slider -->
+<section class="py-12 relative overflow-hidden">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-10">
+      <span class="inline-block px-4 py-1 rounded-full bg-pink-500/10 text-pink-300 text-sm font-medium mb-4">
+        Proyectos Previos
+      </span>
+      <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Ejemplos de Proyectos Realizados
+      </h3>
+      <p class="text-slate-300 max-w-2xl mx-auto">
+        Desliza para ver algunos de nuestros proyectos anteriores con sus precios referenciales.
+      </p>
+    </div>
+
+    <!-- Mensaje destacado sobre personalización -->
+    <div class="max-w-3xl mx-auto mb-10 bg-gradient-to-r from-indigo-900/30 via-purple-900/30 to-indigo-900/30 p-6 rounded-xl border border-indigo-500/20 backdrop-blur-sm">
+      <div class="flex items-start gap-4">
+        <div class="text-indigo-300 shrink-0 mt-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-2">Soluciones totalmente a medida</h4>
+          <p class="text-slate-300">
+            Cada proyecto que desarrollamos es único y personalizado según los requerimientos específicos de nuestros clientes. Los precios mostrados son referenciales y pueden variar dependiendo de tus necesidades particulares.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyectos Slider con la estructura oficial de Swiper -->
+    <div class="proyectos-slider relative">
+      <!-- Swiper -->
+      <div class="swiper swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Proyecto 1 -->
+          <div class="swiper-slide">
+            <div class="proyecto-card bg-slate-900/50 backdrop-blur-xl rounded-xl p-6 border border-slate-800/50 h-full flex flex-col">
+              <div class="mb-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 text-sm font-medium">
+                  Sistema de Pedidos
+                </span>
+              </div>
+              
+              <div class="relative aspect-video rounded-lg overflow-hidden mb-4">
+                <img 
+                  src="/images/projects/pedidosvenados.webp" 
+                  alt="Venados Bakery & Coffee" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/50 to-transparent opacity-60"></div>
+              </div>
+              
+              <h4 class="text-xl font-bold text-white mb-2">Venados Bakery & Coffee</h4>
+              <p class="text-slate-300 mb-4 flex-grow">Sistema de pedidos en línea intuitivo y eficiente.</p>
+              
+              <div class="precio-tag flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
+                <div>
+                  <span class="text-sm text-slate-400">Precio del proyecto</span>
+                  <div class="text-2xl font-bold text-white">$799.990 <span class="text-indigo-400 text-sm">CLP</span></div>
+                </div>
+                <a 
+                  href="#contacto" 
+                  class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors"
+                  onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})"
+                >
+                  <span>Me interesa</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto 2 -->
+          <div class="swiper-slide">
+            <div class="proyecto-card bg-slate-900/50 backdrop-blur-xl rounded-xl p-6 border border-slate-800/50 h-full flex flex-col">
+              <div class="mb-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 text-sm font-medium">
+                  Sistema POS
+                </span>
+              </div>
+              
+              <div class="relative aspect-video rounded-lg overflow-hidden mb-4">
+                <img 
+                  src="/images/projects/pos.webp" 
+                  alt="Sistema POS Empresarial" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/50 to-transparent opacity-60"></div>
+              </div>
+              
+              <h4 class="text-xl font-bold text-white mb-2">Sistema POS Empresarial</h4>
+              <p class="text-slate-300 mb-4 flex-grow">Sistema punto de venta con gestión de inventario y facturación.</p>
+              
+              <div class="precio-tag flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
+                <div>
+                  <span class="text-sm text-slate-400">Precio del proyecto</span>
+                  <div class="text-2xl font-bold text-white">$1.299.990 <span class="text-purple-400 text-sm">CLP</span></div>
+                </div>
+                <a 
+                  href="#contacto" 
+                  class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+                  onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})"
+                >
+                  <span>Me interesa</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto 3 -->
+          <div class="swiper-slide">
+            <div class="proyecto-card bg-slate-900/50 backdrop-blur-xl rounded-xl p-6 border border-slate-800/50 h-full flex flex-col">
+              <div class="mb-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-pink-500/10 text-pink-300 text-sm font-medium">
+                  Página Web
+                </span>
+              </div>
+              
+              <div class="relative aspect-video rounded-lg overflow-hidden mb-4">
+                <img 
+                  src="/images/projects/drvalery.webp" 
+                  alt="Dr. Valery" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/50 to-transparent opacity-60"></div>
+              </div>
+              
+              <h4 class="text-xl font-bold text-white mb-2">Dr. Valery</h4>
+              <p class="text-slate-300 mb-4 flex-grow">Sitio web profesional para consulta médica con sistema de citas.</p>
+              
+              <div class="precio-tag flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
+                <div>
+                  <span class="text-sm text-slate-400">Precio del proyecto</span>
+                  <div class="text-2xl font-bold text-white">$599.990 <span class="text-pink-400 text-sm">CLP</span></div>
+                </div>
+                <a 
+                  href="#contacto" 
+                  class="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 transition-colors"
+                  onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})"
+                >
+                  <span>Me interesa</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Proyecto 4 -->
+          <div class="swiper-slide">
+            <div class="proyecto-card bg-slate-900/50 backdrop-blur-xl rounded-xl p-6 border border-slate-800/50 h-full flex flex-col">
+              <div class="mb-4">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/10 text-blue-300 text-sm font-medium">
+                  E-commerce
+                </span>
+              </div>
+              
+              <div class="relative aspect-video rounded-lg overflow-hidden mb-4">
+                <img 
+                  src="/images/projects/saborhub.webp" 
+                  alt="SaborHub" 
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/50 to-transparent opacity-60"></div>
+              </div>
+              
+              <h4 class="text-xl font-bold text-white mb-2">SaborHub</h4>
+              <p class="text-slate-300 mb-4 flex-grow">Plataforma de E-commerce para productos gourmet con pasarela de pago.</p>
+              
+              <div class="precio-tag flex items-center justify-between mt-auto pt-4 border-t border-slate-800">
+                <div>
+                  <span class="text-sm text-slate-400">Precio del proyecto</span>
+                  <div class="text-2xl font-bold text-white">$1.199.990 <span class="text-blue-400 text-sm">CLP</span></div>
+                </div>
+                <a 
+                  href="#contacto" 
+                  class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                  onclick="document.getElementById('contacto').scrollIntoView({behavior: 'smooth'})"
+                >
+                  <span>Me interesa</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </div>
   </div>
@@ -239,61 +498,58 @@
 
   /* Estilos para las tarjetas de planes */
   .planes-container {
-    perspective: 2000px;
-    transform-style: preserve-3d;
+    perspective: none; /* Eliminado el efecto 3D */
   }
 
   .plan-card {
     opacity: 0;
-    transform: translateY(100px) rotateX(-10deg);
+    transform: translateY(100px);
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
   }
 
   .plan-card.active {
     opacity: 1;
-    transform: translateY(0) rotateX(0);
+    transform: translateY(0);
   }
 
   /* Animaciones específicas para cada tarjeta */
   .plan-card:nth-child(1) {
-    transform: translateY(100px) rotateX(-15deg) translateX(-50px);
+    transform: translateY(100px) translateX(-50px);
     transition-delay: 200ms;
   }
 
   .plan-card:nth-child(2) {
-    transform: translateY(120px) rotateX(-15deg) scale(0.95);
+    transform: translateY(120px) scale(0.95);
     transition-delay: 400ms;
   }
 
   .plan-card:nth-child(3) {
-    transform: translateY(100px) rotateX(-15deg) translateX(50px);
+    transform: translateY(100px) translateX(50px);
     transition-delay: 600ms;
   }
 
   .plan-card.active:nth-child(1) {
-    transform: translateY(0) rotateX(0) translateX(0);
+    transform: translateY(0) translateX(0);
   }
 
   .plan-card.active:nth-child(2) {
-    transform: translateY(0) rotateX(0) scale(1);
+    transform: translateY(0) scale(1);
   }
 
   .plan-card.active:nth-child(3) {
-    transform: translateY(0) rotateX(0) translateX(0);
+    transform: translateY(0) translateX(0);
   }
 
-  /* Efectos hover mejorados */
+  /* Efectos hover modificados - sin efectos 3D */
   .plan-card .card-content {
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s ease-out;
     background: rgba(15, 23, 42, 0.5);
     border: 1px solid rgba(99, 102, 241, 0.2);
     backdrop-filter: blur(10px);
   }
 
   .plan-card:hover .card-content {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-8px); /* Solo movimiento vertical suave */
     background: rgba(15, 23, 42, 0.7);
     border-color: rgba(139, 92, 246, 0.4);
     box-shadow: 
@@ -345,6 +601,58 @@
   .plan-card .features li:nth-child(3) { transition-delay: 100ms; }
   .plan-card .features li:nth-child(4) { transition-delay: 150ms; }
   .plan-card .features li:nth-child(5) { transition-delay: 200ms; }
+
+  /* Estilos para el slider de proyectos */
+  .proyecto-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+  }
+  
+  .proyecto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.3);
+    border-color: rgba(139, 92, 246, 0.4);
+  }
+  
+  /* Estos estilos son importantes para Swiper */
+  .swiper {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: rgba(139, 92, 246, 0.8);
+    --swiper-navigation-size: 24px;
+  }
+  
+  .swiper-pagination-bullet {
+    background: rgba(139, 92, 246, 0.7);
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: rgba(139, 92, 246, 1);
+  }
+
+  /* Estilo para resaltar temporalmente la sección de contacto */
+  @keyframes highlight-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+    50% { box-shadow: 0 0 30px 5px rgba(99, 102, 241, 0.4); }
+  }
+  
+  .highlighted-section {
+    animation: highlight-pulse 1.5s ease-out;
+  }
 </style>
 
 <script>
@@ -368,28 +676,100 @@
     if (planesSection) {
       observer.observe(planesSection);
     }
-
-    // Efecto de seguimiento del mouse
-    planCards.forEach((card: Element) => {
-      (card as HTMLElement).addEventListener('mousemove', (e: MouseEvent) => {
-        const rect = (card as HTMLElement).getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-
-        (card as HTMLElement).style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-      });
-
-      (card as HTMLElement).addEventListener('mouseleave', () => {
-        (card as HTMLElement).style.transform = '';
-      });
-    });
   }
 
   document.addEventListener('DOMContentLoaded', handlePlanesAnimation);
-</script> 
+</script>
+
+<!-- Script separado para Swiper con is:inline para garantizar que se ejecute en el cliente -->
+<script is:inline>
+  // Esperar a que el DOM esté completamente cargado
+  document.addEventListener('DOMContentLoaded', function() {
+    // Esperar un poco más para asegurar que los recursos externos estén cargados
+    setTimeout(function() {
+      try {
+        // Inicializar Swiper
+        const swiper = new Swiper('.swiper-container', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          centeredSlides: true,
+          autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          },
+        });
+        console.log('Swiper inicializado correctamente');
+      } catch (error) {
+        console.error('Error al inicializar Swiper:', error);
+      }
+    }, 1000);  // Aumentamos el tiempo de espera a 1000ms (1 segundo)
+  });
+</script>
+
+<!-- Solución alternativa con enlaces directos -->
+<script is:inline>
+  // Implementación directa para manejar la navegación a la sección de contacto
+  document.addEventListener('DOMContentLoaded', function() {
+    // Añadir scroll suave directamente para toda la página
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Verificar que los botones de "Comenzar Ahora" funcionen correctamente
+    const contactSection = document.getElementById('contacto');
+    if (contactSection) {
+      // Agregar un manejador para toda la página que capture clics en botones
+      document.addEventListener('click', function(e) {
+        // Capturar clics en botones "Comenzar Ahora"
+        if (e.target && (e.target.textContent.trim() === 'Comenzar Ahora' || 
+            (e.target.parentElement && e.target.parentElement.textContent.trim() === 'Comenzar Ahora'))) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // Navegar a la sección de contacto
+          contactSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Resaltar brevemente la sección de contacto
+          contactSection.classList.add('highlighted-section');
+          setTimeout(() => {
+            contactSection.classList.remove('highlighted-section');
+          }, 1500);
+        }
+      }, true); // Usar fase de captura para asegurar que se ejecute antes
+    }
+  });
+</script>
