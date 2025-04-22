@@ -15,23 +15,29 @@
       </p>
     </div>
 
-    <!-- Timeline Container -->
+    <!-- Timeline Container Mejorado -->
     <div class="relative timeline-container">
-      <!-- Línea central - Visible solo en desktop -->
-      <div class="absolute left-1/2 top-0 h-full w-px bg-gradient-to-b from-indigo-500/20 via-purple-500/20 to-pink-500/20 timeline-line hidden md:block"></div>
-      
-      <!-- Línea vertical para móvil -->
-      <div class="absolute left-4 top-0 h-full w-px bg-gradient-to-b from-indigo-500/20 via-purple-500/20 to-pink-500/20 timeline-line md:hidden"></div>
+      <!-- Línea central con gradiente animado -->
+      <div class="absolute left-1/2 top-0 h-full hidden md:block">
+        <div class="w-px h-full bg-gradient-to-b from-indigo-500/40 via-purple-500/40 to-pink-500/40 timeline-line"></div>
+        <div class="w-px h-full absolute top-0 left-0 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 timeline-glow"></div>
+      </div>
+
+      <!-- Línea móvil mejorada -->
+      <div class="absolute left-4 top-0 h-full md:hidden">
+        <div class="w-px h-full bg-gradient-to-b from-indigo-500/40 via-purple-500/40 to-pink-500/40 timeline-line"></div>
+        <div class="w-px h-full absolute top-0 left-0 bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 timeline-glow"></div>
+      </div>
 
       <!-- Proyectos Timeline -->
-      <div class="relative">
+      <div class="relative space-y-24">
         <!-- Proyecto 1: Venados -->
-        <div class="timeline-item flex items-center justify-center mb-32">
+        <div class="timeline-item">
           <!-- Vista Desktop -->
-          <div class="w-full hidden md:grid md:grid-cols-[1fr,50px,1fr]">
+          <div class="hidden md:grid md:grid-cols-[1fr,60px,1fr] items-center">
             <!-- Contenido Izquierda -->
-            <div class="pr-8 group">
-              <article class="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50 hover:border-indigo-500/50 transition-colors duration-500">
+            <div class="pr-12 group">
+              <article class="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.3)] hover:-translate-y-1">
                 <div class="space-y-6">
                   <!-- Badge y Título -->
                   <div>
@@ -81,99 +87,109 @@
               </article>
             </div>
 
-            <!-- Punto Timeline -->
-            <div class="relative flex justify-center items-center">
-              <div class="w-4 h-4 rounded-full border-4 border-indigo-500 bg-slate-950"></div>
-              <span class="absolute -top-8 text-sm text-indigo-400">2024</span>
+            <!-- Punto Timeline Mejorado -->
+            <div class="relative flex justify-center">
+              <div class="timeline-point">
+                <div class="w-3 h-3 rounded-full bg-indigo-500 timeline-dot"></div>
+                <div class="timeline-point-ring"></div>
+                <div class="absolute -top-8 timeline-year">
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                    2024
+                  </span>
+                </div>
+              </div>
             </div>
 
             <!-- Espacio Derecha -->
             <div></div>
           </div>
 
-          <!-- Vista Móvil -->
-          <div class="w-full md:hidden">
-            <div class="relative pl-12">
-              <!-- Año Móvil - Reposicionado -->
-              <div class="mb-2 pl-4">
-                <span class="inline-flex items-center px-3 py-1 rounded-lg bg-gradient-to-r from-indigo-500/10 to-indigo-500/5 border border-indigo-500/20">
-                  <span class="text-sm font-medium bg-gradient-to-r from-indigo-400 to-indigo-600 text-transparent bg-clip-text">2024</span>
-                </span>
+          <!-- Vista Móvil Mejorada -->
+          <div class="md:hidden relative pl-12">
+            <!-- Año y Punto Timeline -->
+            <div class="absolute left-0 top-0 h-full flex items-start pt-4">
+              <div class="timeline-point-mobile">
+                <div class="w-2 h-2 rounded-full bg-indigo-500 timeline-dot"></div>
+                <div class="timeline-point-ring-mobile"></div>
+                <div class="h-px w-10 bg-gradient-to-r from-indigo-500 to-transparent ml-2"></div>
               </div>
-              <!-- Punto Timeline Móvil -->
-              <div class="absolute left-0 top-14 flex items-center">
-                <div class="w-4 h-4 rounded-full border-4 border-indigo-500 bg-slate-950 timeline-dot"></div>
-                <div class="h-px w-8 bg-gradient-to-r from-indigo-500 to-transparent ml-2"></div>
-              </div>
-              <!-- Contenido del Proyecto -->
-              <article class="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50 hover:border-indigo-500/50 transition-colors duration-500">
-                <div class="space-y-6">
-                  <!-- Badge y Título -->
-                  <div>
-                    <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-medium mb-4">
-                      Sistema de Pedidos
-                    </span>
-                    <h3 class="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors duration-300">
-                      Venados Bakery & Coffee
-                    </h3>
-                  </div>
-
-                  <!-- Imagen -->
-                  <div class="relative aspect-video rounded-xl overflow-hidden">
-                    <img 
-                      src="/images/projects/pedidosvenados.webp"
-                      alt="Venados Bakery & Coffee" 
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/50 to-transparent opacity-60"></div>
-                  </div>
-
-                  <!-- Descripción -->
-                  <p class="text-slate-300">
-                    Sistema de pedidos en línea intuitivo y eficiente que revolucionó la forma en que Venados gestiona sus pedidos.
-                  </p>
-
-                  <!-- Tech Stack -->
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 rounded-lg bg-sky-500/10 text-sky-300 text-sm">Vue.js</span>
-                    <span class="px-3 py-1 rounded-lg bg-blue-500/10 text-blue-300 text-sm">Tailwind CSS</span>
-                    <span class="px-3 py-1 rounded-lg bg-orange-500/10 text-orange-300 text-sm">Firebase</span>
-                  </div>
-
-                  <!-- Call to Action -->
-                  <a 
-                    href="https://pedidosvenados.cl" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors group/link"
-                  >
-                    <span>Ver Proyecto</span>
-                    <svg class="w-4 h-4 transform transition-transform duration-300 group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                    </svg>
-                  </a>
-                </div>
-              </article>
             </div>
+
+            <!-- Contenido -->
+            <article class="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50 hover:border-indigo-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.3)]">
+              <div class="space-y-6">
+                <!-- Badge y Título -->
+                <div>
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-medium mb-4">
+                    Sistema de Pedidos
+                  </span>
+                  <h3 class="text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors duration-300">
+                    Venados Bakery & Coffee
+                  </h3>
+                </div>
+
+                <!-- Imagen -->
+                <div class="relative aspect-video rounded-xl overflow-hidden">
+                  <img 
+                    src="/images/projects/pedidosvenados.webp"
+                    alt="Venados Bakery & Coffee" 
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-tr from-slate-950 via-slate-950/50 to-transparent opacity-60"></div>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-slate-300">
+                  Sistema de pedidos en línea intuitivo y eficiente que revolucionó la forma en que Venados gestiona sus pedidos.
+                </p>
+
+                <!-- Tech Stack -->
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg bg-sky-500/10 text-sky-300 text-sm">Vue.js</span>
+                  <span class="px-3 py-1 rounded-lg bg-blue-500/10 text-blue-300 text-sm">Tailwind CSS</span>
+                  <span class="px-3 py-1 rounded-lg bg-orange-500/10 text-orange-300 text-sm">Firebase</span>
+                </div>
+
+                <!-- Call to Action -->
+                <a 
+                  href="https://pedidosvenados.cl" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 transition-colors group/link"
+                >
+                  <span>Ver Proyecto</span>
+                  <svg class="w-4 h-4 transform transition-transform duration-300 group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+              </div>
+            </article>
           </div>
         </div>
 
         <!-- Proyecto 2: Sistema POS -->
-        <div class="timeline-item flex items-center justify-center mb-32">
+        <div class="timeline-item">
           <!-- Vista Desktop -->
-          <div class="w-full hidden md:grid md:grid-cols-[1fr,50px,1fr]">
+          <div class="hidden md:grid md:grid-cols-[1fr,60px,1fr] items-center">
             <!-- Espacio Izquierda -->
             <div></div>
 
             <!-- Punto Timeline -->
-            <div class="relative flex justify-center items-center">
-              <div class="w-4 h-4 rounded-full border-4 border-purple-500 bg-slate-950"></div>
-              <span class="absolute -top-8 text-sm text-purple-400">2023</span>
+            <div class="relative flex justify-center">
+              <div class="timeline-point">
+                <div class="w-3 h-3 rounded-full bg-purple-500 timeline-dot"></div>
+                <div class="timeline-point-ring"></div>
+                <div class="absolute -top-8 timeline-year">
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                    2023
+                  </span>
+                </div>
+              </div>
             </div>
 
             <!-- Contenido Derecha -->
-            <div class="pl-8 group">
-              <article class="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50 hover:border-purple-500/50 transition-colors duration-500">
+            <div class="pl-12 group">
+              <article class="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.3)] hover:-translate-y-1">
                 <div class="space-y-6">
                   <!-- Badge y Título -->
                   <div>
@@ -288,12 +304,12 @@
         </div>
 
         <!-- Proyecto 3: Dra. Valery -->
-        <div class="timeline-item flex items-center justify-center">
+        <div class="timeline-item">
           <!-- Vista Desktop -->
-          <div class="w-full hidden md:grid md:grid-cols-[1fr,50px,1fr]">
+          <div class="hidden md:grid md:grid-cols-[1fr,60px,1fr] items-center">
             <!-- Contenido Izquierda -->
-            <div class="pr-8 group">
-              <article class="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50 hover:border-pink-500/50 transition-colors duration-500">
+            <div class="pr-12 group">
+              <article class="bg-slate-900/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-800/50 hover:border-pink-500/50 transition-all duration-500 hover:shadow-[0_0_30px_-5px_rgba(79,70,229,0.3)] hover:-translate-y-1">
                 <div class="space-y-6">
                   <!-- Badge y Título -->
                   <div>
@@ -344,9 +360,16 @@
             </div>
 
             <!-- Punto Timeline -->
-            <div class="relative flex justify-center items-center">
-              <div class="w-4 h-4 rounded-full border-4 border-pink-500 bg-slate-950"></div>
-              <span class="absolute -top-8 text-sm text-pink-400">2023</span>
+            <div class="relative flex justify-center">
+              <div class="timeline-point">
+                <div class="w-3 h-3 rounded-full bg-pink-500 timeline-dot"></div>
+                <div class="timeline-point-ring"></div>
+                <div class="absolute -top-8 timeline-year">
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold bg-pink-500/10 text-pink-400 border border-pink-500/20">
+                    2023
+                  </span>
+                </div>
+              </div>
             </div>
 
             <!-- Espacio Derecha -->
@@ -425,62 +448,136 @@
 </section>
 
 <style>
+  .timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
   .timeline-line {
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 1.5s ease-out;
   }
 
-  .timeline-line.animate {
-    transform: scaleY(1);
+  .timeline-glow {
+    filter: blur(4px);
+    opacity: 0.5;
+    animation: glowPulse 3s infinite;
+  }
+
+  .timeline-point {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .timeline-point-ring {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    animation: ringPulse 3s infinite;
+  }
+
+  .timeline-point-ring-mobile {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    animation: ringPulse 3s infinite;
+  }
+
+  .timeline-year {
+    position: absolute;
+    white-space: nowrap;
+    transform: translateY(-1rem);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+  }
+
+  .timeline-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .timeline-item.animate {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 
-  @keyframes dot-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+  .timeline-line.animate {
+    transform: scaleY(1);
   }
 
-  .timeline-dot {
-    animation: dot-pulse 2s ease-in-out infinite;
+  article {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
   }
 
-  /* Estilos específicos para móvil */
+  article::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: rotate(35deg);
+    transition: all 0.55s ease;
+  }
+
+  article:hover::before {
+    left: 100%;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+
+  @keyframes ringPulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.3;
+    }
+  }
+
   @media (max-width: 768px) {
     .timeline-item {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-bottom: 3rem;
     }
 
-    .timeline-item.animate {
-      opacity: 1;
-      transform: translateY(0);
+    .timeline-point-mobile {
+      position: relative;
+      display: flex;
+      align-items: center;
     }
 
-    .timeline-dot::after {
-      content: '';
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--tw-gradient-from) 0%, transparent 70%);
-      opacity: 0.2;
+    article {
+      transform: none;
     }
 
-    /* Nuevo estilo para la animación del año */
-    .timeline-item .mb-2 {
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.4s ease-out;
-    }
-
-    .timeline-item.animate .mb-2 {
-      opacity: 1;
-      transform: translateY(0);
+    article:hover {
+      transform: translateX(0.5rem);
     }
   }
 </style>
@@ -499,9 +596,7 @@
           }
           
           if (entry.target.classList.contains('timeline-item')) {
-            setTimeout(() => {
-              entry.target.classList.add('animate');
-            }, 300);
+            entry.target.classList.add('animate');
           }
         }
       });
